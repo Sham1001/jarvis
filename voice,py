@@ -1,0 +1,21 @@
+import pyttsx3
+
+# Initialize the engine
+engine = pyttsx3.init()
+
+# Get and list all available voices
+voices = engine.getProperty('voices')
+for index, voice in enumerate(voices):
+    print(f"Voice {index}: {voice.name} ({voice.languages[0]})")
+
+# Change the voice to a specific one
+# Example: Change to the second voice in the list
+engine.setProperty('voice', voices[1].id)
+
+# Optional: Adjust rate and volume
+engine.setProperty('rate', 150)
+engine.setProperty('volume', 1.0)
+
+# Test the voice
+engine.say("Hello, how are you?")
+engine.runAndWait()
